@@ -14,9 +14,6 @@ export interface IUser {
 // create the user schema
 const userSchema = new mongoose.Schema<IUser>(
   {
-    _id: {
-      type: mongoose.Types.ObjectId,
-    },
     name: {
       type: String,
       required: true,
@@ -43,8 +40,7 @@ userSchema.pre("save", async function (next) {
 });
 
 // create the User-model
-const User =
-  mongoose.models?.users || mongoose.model<IUser>("User", userSchema);
+const User = mongoose.models?.User || mongoose.model<IUser>("User", userSchema);
 
 // export User-model
 export { User };

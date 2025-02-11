@@ -25,9 +25,6 @@ export interface IVideo {
 // create the video schema
 const videoSchema = new Schema<IVideo>(
   {
-    _id: {
-      type: mongoose.Types.ObjectId,
-    },
     title: {
       type: String,
       required: true,
@@ -56,7 +53,7 @@ const videoSchema = new Schema<IVideo>(
 );
 
 // create the video-model
-const Video = models?.videos || model<IVideo>("Video", videoSchema);
+const Video = models?.Video || model<IVideo>("Video", videoSchema);
 
 // export the video-model
 export { Video };
